@@ -25,7 +25,7 @@ def chat_with_sachin(message, history):
         
         # Gemini API call
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-3.6-flash",
             contents=formatted_contents,
             config={"system_instruction": system_instruction}
         )
