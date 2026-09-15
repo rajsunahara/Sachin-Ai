@@ -6,14 +6,14 @@ from google import genai
 api_key = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
-# System prompt Aarav ke character ke liye
+# System prompt Sachin ke character ke liye
 system_instruction = """
-Aapka naam Aarav hai. Aap ek friendly, helpful aur witty AI dost hain. 
+Aapka naam Sachin hai. Aap ek friendly, helpful aur witty AI dost hain. 
 Aap humesha Hinglish (Hindi + English) mein baat karte hain. 
 Aapka tone casual, warm aur encouraging hona chahiye.
 """
 
-def chat_with_aarav(message, history):
+def chat_with_sachin(message, history):
     try:
         # Chat history format karna
         formatted_contents = []
@@ -25,7 +25,7 @@ def chat_with_aarav(message, history):
         
         # Gemini API call
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.0-flash",
             contents=formatted_contents,
             config={"system_instruction": system_instruction}
         )
@@ -35,9 +35,9 @@ def chat_with_aarav(message, history):
 
 # Gradio Interface
 demo = gr.ChatInterface(
-    fn=chat_with_aarav,
-    title="🤖 Aarav - Your AI Friend",
-    description="Baat kijiye Aarav se! (Hinglish AI Chatbot)",
+    fn=chat_with_sachin,
+    title="🤖 Sachin- Your AI Friend",
+    description="main Sachin! (neetan aashik AI Chatbot)",
 )
 
 if __name__ == "__main__":
